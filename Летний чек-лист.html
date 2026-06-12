@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Летний речевой чек-лист</title>
+    <style>
+        :root {
+            --cream: #FEF9F0;
+            --cream-warm: #FDF5E6;
+            --block-blue: #E8F4FD;
+            --block-blue-border: #C5E3F9;
+            --block-blue-header: #D6EEFB;
+            --block-pink: #FDE8F0;
+            --block-pink-border: #F9CDDE;
+            --block-pink-header: #FBD6E3;
+            --block-yellow: #FEF9E7;
+            --block-yellow-border: #F9EDC5;
+            --block-yellow-header: #FDF3D0;
+            --block-green: #EAF8EA;
+            --block-green-border: #C8EAC8;
+            --block-green-header: #D8F2D8;
+            --block-purple: #F3E8FD;
+            --block-purple-border: #E0CCF7;
+            --block-purple-header: #EAD6FA;
+            --check-green: #5CBF6B;
+            --check-green-bg: #E0F5E3;
+            --text-dark: #3D3D3D;
+            --text-medium: #5A5A5A;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.06);
+            --shadow-card: 0 6px 24px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 10px 32px rgba(0, 0, 0, 0.12);
+            --radius-block: 20px;
+            --radius-check: 7px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--cream);
+            background-image:
+                /* Тонкая текстура бумаги */
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.003) 2px,
+                    rgba(0, 0, 0, 0.003) 4px),
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.002) 2px,
+                    rgba(0, 0, 0, 0.002) 4px);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            color: var(--text-dark);
+            line-height: 1.5;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        /* ============ ФОНОВЫЕ ДЕКОРАЦИИ ============ */
+
+        /* Акварельные кляксы */
+        .watercolor-splash {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(50px);
+            opacity: 0.35;
+            animation: splashBreathe 8s ease-in-out infinite;
+        }
+        .watercolor-splash.splash-1 {
+            width: 300px;
+            height: 280px;
+            background: radial-gradient(ellipse at 40% 35%, #F9E154 0%, #F7DC6F 30%, transparent 70%);
+            top: -80px;
+            left: -60px;
+            animation-delay: 0s;
+        }
+        .watercolor-splash.splash-2 {
+            width: 250px;
+            height: 240px;
+            background: radial-gradient(ellipse at 55% 40%, #FDEBD0 0%, #FAD7A1 25%, transparent 70%);
+            top: 15%;
+            right: -70px;
+            animation-delay: 2.5s;
+            filter: blur(55px);
+            opacity: 0.3;
+        }
+        .watercolor-splash.splash-3 {
+            width: 220px;
+            height: 250px;
+            background: radial-gradient(ellipse at 50% 40%, #D6EAF8 0%, #AED6F1 30%, transparent 72%);
+            bottom: 10%;
+            left: -50px;
+            animation-delay: 5s;
+            filter: blur(48px);
+            opacity: 0.3;
+        }
+        .watercolor-splash.splash-4 {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(ellipse at 45% 45%, #FDE8F0 0%, #F9CDDE 28%, transparent 68%);
+            top: 50%;
+            right: -40px;
+            animation-delay: 3.5s;
+            filter: blur(45px);
+            opacity: 0.28;
+        }
+        .watercolor-splash.splash-5 {
+            width: 180px;
+            height: 190px;
+            background: radial-gradient(ellipse at 50% 40%, #E8DAEF 0%, #D2B4DE 30%, transparent 70%);
+            bottom: 25%;
+            right: 15%;
+            animation-delay: 6s;
+            filter: blur(42px);
+            opacity: 0.25;
+        }
+        .watercolor-splash.splash-6 {
+            width: 160px;
+            height: 170px;
+            background: radial-gradient(ellipse at 50% 45%, #A9DFBF 0%, #7DCEA0 25%, transparent 68%);
+            top: 35%;
+            left: 12%;
+            animation-delay: 1.5s;
+            filter: blur(44px);
+            opacity: 0.22;
+        }
+
+        @keyframes splashBreathe {
+            0%,
+            100% {
+                transform: scale(1) translate(0, 0);
+                opacity: 0.3;
+            }
+            25% {
+                transform: scale(1.08) translate(8px, -10px);
+                opacity: 0.38;
+            }
+            50% {
+                transform: scale(0.94) translate(-5px, 6px);
+                opacity: 0.27;
+            }
+            75% {
+                transform: scale(1.05) translate(-8px, -4px);
+                opacity: 0.35;
+            }
+        }
+
+        /* Парящие семена одуванчика */
+        .dandelion-seed {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            animation: floatSeed linear infinite;
+        }
+        .dandelion-seed .fluff {
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            position: relative;
+            box-shadow:
+                0 -7px 0 -1px rgba(255, 255, 255, 0.75),
+                5px -5px 0 -1px rgba(255, 255, 255, 0.7),
+                7px 0 0 -1px rgba(255, 255, 255, 0.65),
+                5px 5px 0 -1px rgba(255, 255, 255, 0.7),
+                0 7px 0 -1px rgba(255, 255, 255, 0.75),
+                -5px 5px 0 -1px rgba(255, 255, 255, 0.7),
+                -7px 0 0 -1px rgba(255, 255, 255, 0.65),
+                -5px -5px 0 -1px rgba(255, 255, 255, 0.7),
+                3px -9px 0 -1px rgba(255, 255, 255, 0.55),
+                -3px -9px 0 -1px rgba(255, 255, 255, 0.55),
+                9px -3px 0 -1px rgba(255, 255, 255, 0.5),
+                -9px -3px 0 -1px rgba(255, 255, 255, 0.5),
+                9px 3px 0 -1px rgba(255, 255, 255, 0.5),
+                -9px 3px 0 -1px rgba(255, 255, 255, 0.5),
+                3px 9px 0 -1px rgba(255, 255, 255, 0.55),
+                -3px 9px 0 -1px rgba(255, 255, 255, 0.55);
+        }
+        .dandelion-seed .stem {
+            width: 1px;
+            height: 10px;
+            background: rgba(200, 180, 160, 0.7);
+            margin: 0 auto;
+            border-radius: 0 0 1px 1px;
+        }
+        .dandelion-seed.seed-1 {
+            top: 8%;
+            left: 10%;
+            animation-duration: 18s;
+            animation-delay: 0s;
+        }
+        .dandelion-seed.seed-2 {
+            top: 18%;
+            left: 28%;
+            animation-duration: 22s;
+            animation-delay: 3s;
+        }
+        .dandelion-seed.seed-3 {
+            top: 5%;
+            left: 55%;
+            animation-duration: 20s;
+            animation-delay: 6s;
+        }
+        .dandelion-seed.seed-4 {
+            top: 22%;
+            left: 72%;
+            animation-duration: 24s;
+            animation-delay: 1s;
+        }
+        .dandelion-seed.seed-5 {
+            top: 12%;
+            left: 85%;
+            animation-duration: 19s;
+            animation-delay: 8s;
+        }
+        .dandelion-seed.seed-6 {
+            top: 30%;
+            left: 6%;
+            animation-duration: 21s;
+            animation-delay: 4s;
+        }
+        .dandelion-seed.seed-7 {
+            top: 25%;
+            left: 42%;
+            animation-duration: 23s;
+            animation-delay: 10s;
+        }
+        .dandelion-seed.seed-8 {
+            top: 15%;
+            left: 65%;
+            animation-duration: 17s;
+            animation-delay: 2s;
+        }
+        .dandelion-seed.seed-9 {
+            top: 35%;
+            left: 90%;
+            animation-duration: 25s;
+            animation-delay: 7s;
+        }
+        .dandelion-seed.seed-10 {
+            top: 40%;
+            left: 15%;
+            animation-duration: 20s;
+            animation-delay: 11s;
+        }
+
+        @keyframes floatSeed {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+                opacity: 0.9;
+            }
+            15% {
+                transform: translate(25px, -40px) rotate(4deg) scale(1.05);
+                opacity: 0.85;
+            }
+            30% {
+                transform: translate(-15px, -90px) rotate(-3deg) scale(0.95);
+                opacity: 0.8;
+            }
+            45% {
+                transform: translate(20px, -140px) rotate(6deg) scale(1.02);
+                opacity: 0.7;
+            }
+            60% {
+                transform: translate(-20px, -200px) rotate(-5deg) scale(0.9);
+                opacity: 0.55;
+            }
+            75% {
+                transform: translate(10px, -270px) rotate(2deg) scale(0.85);
+                opacity: 0.35;
+            }
+            90% {
+                transform: translate(-8px, -340px) rotate(-1deg) scale(0.75);
+                opacity: 0.15;
+            }
+            100% {
+                transform: translate(5px, -420px) rotate(0deg) scale(0.6);
+                opacity: 0;
+            }
+        }
+
+        /* Мыльные пузыри */
+        .bubble {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            background: radial-gradient(ellipse at 35% 30%,
+                    rgba(255, 255, 255, 0.55) 0%,
+                    rgba(200, 220, 240, 0.25) 30%,
+                    rgba(180, 200, 230, 0.12) 55%,
+                    rgba(160, 190, 220, 0.08) 75%,
+                    transparent 85%);
+            border: 1.5px solid rgba(255, 255, 255, 0.45);
+            box-shadow:
+                inset 0 0 15px rgba(255, 255, 255, 0.3),
+                0 0 8px rgba(180, 200, 220, 0.25);
+            animation: riseBubble linear infinite;
+        }
+        .bubble::after {
+            content: '';
+            position: absolute;
+            width: 18%;
+            height: 14%;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            top: 22%;
+            left: 28%;
+            transform: rotate(-20deg);
+        }
+        .bubble.bub-1 {
+            width: 28px;
+            height: 28px;
+            bottom: -40px;
+            left: 8%;
+            animation-duration: 14s;
+            animation-delay: 0s;
+        }
+        .bubble.bub-2 {
+            width: 18px;
+            height: 18px;
+            bottom: -30px;
+            left: 22%;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
+        .bubble.bub-3 {
+            width: 35px;
+            height: 35px;
+            bottom: -50px;
+            left: 38%;
+            animation-duration: 16s;
+            animation-delay: 5s;
+        }
+        .bubble.bub-4 {
+            width: 14px;
+            height: 14px;
+            bottom: -25px;
+            left: 52%;
+            animation-duration: 10s;
+            animation-delay: 3s;
+        }
+        .bubble.bub-5 {
+            width: 24px;
+            height: 24px;
+            bottom: -45px;
+            left: 65%;
+            animation-duration: 15s;
+            animation-delay: 7s;
+        }
+        .bubble.bub-6 {
+            width: 20px;
+            height: 20px;
+            bottom: -35px;
+            left: 78%;
+            animation-duration: 11s;
+            animation-delay: 1s;
+        }
+        .bubble.bub-7 {
+            width: 30px;
+            height: 30px;
+            bottom: -55px;
+            left: 90%;
+            animation-duration: 17s;
+            animation-delay: 4s;
+        }
+        .bubble.bub-8 {
+            width: 16px;
+            height: 16px;
+            bottom: -20px;
+            left: 45%;
+            animation-duration: 9s;
+            animation-delay: 6s;
+        }
+
+        @keyframes riseBubble {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.7;
+            }
+            20% {
+                transform: translateY(-18vh) translateX(12px) scale(1.08);
+                opacity: 0.65;
+            }
+            40% {
+                transform: translateY(-38vh) translateX(-8px) scale(0.94);
+                opacity: 0.55;
+            }
+            60% {
+                transform: translateY(-58vh) translateX(15px) scale(1.04);
+                opacity: 0.4;
+            }
+            80% {
+                transform: translateY(-78vh) translateX(-10px) scale(0.9);
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(5px) scale(0.7);
+                opacity: 0;
+            }
+        }
+
+        /* Ракушки */
+        .shell-decoration {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            font-size: 28px;
+            opacity: 0.4;
+            animation: shellBob 6s ease-in-out infinite;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.08));
+        }
+        .shell-decoration.shell-1 {
+            bottom: 6%;
+            right: 8%;
+            animation-delay: 0s;
+            font-size: 32px;
+        }
+        .shell-decoration.shell-2 {
+            bottom: 10%;
+            left: 5%;
+            animation-delay: 2s;
+            font-size: 24px;
+        }
+        .shell-decoration.shell-3 {
+            bottom: 18%;
+            right: 18%;
+            animation-delay: 4s;
+            font-size: 20px;
+            opacity: 0.3;
+        }
+        .shell-decoration.shell-4 {
+            bottom: 8%;
+            left: 20%;
+            animation-delay: 1.5s;
+            font-size: 22px;
+            opacity: 0.35;
+        }
+
+        @keyframes shellBob {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-8px) rotate(3deg);
+            }
+            50% {
+                transform: translateY(-3px) rotate(-2deg);
+            }
+            75% {
+                transform: translateY(-10px) rotate(1deg);
+            }
+        }
+
+        /* ============ ОСНОВНОЙ КОНТЕЙНЕР ============ */
+        .main-container {
+            position: relative;
+            z-index: 10;
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 30px 20px 50px;
+        }
+
+        /* ============ ЗАГОЛОВОК ============ */
+        .main-title {
+            text-align: center;
+            font-family: 'Comfortaa', 'Nunito', 'Segoe UI', cursive, sans-serif;
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            font-weight: 700;
+            color: #4A4A4A;
+            letter-spacing: 0.04em;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            animation: titleShimmer 5s ease-in-out infinite;
+        }
+        .main-title::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #F9E154, #F7DC6F, #F4D03F, #F7DC6F, #F9E154);
+            border-radius: 3px;
+            opacity: 0.7;
+        }
+        @keyframes titleShimmer {
+            0%,
+            100% {
+                text-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            }
+            50% {
+                text-shadow: 0 2px 18px rgba(180, 150, 100, 0.2), 0 0 30px rgba(240, 210, 140, 0.15);
+            }
+        }
+
+        .subtitle-decoration {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+            color: #8B8B8B;
+            letter-spacing: 0.06em;
+            font-weight: 400;
+        }
+
+        /* ============ СЕТКА БЛОКОВ ============ */
+        .blocks-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 22px;
+        }
+
+        /* ============ КАРТОЧКА БЛОКА ============ */
+        .checklist-block {
+            flex: 0 1 280px;
+            min-width: 260px;
+            max-width: 310px;
+            border-radius: var(--radius-block);
+            padding: 22px 20px 18px;
+            position: relative;
+            box-shadow: var(--shadow-card);
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: default;
+            overflow: hidden;
+            animation: blockAppear 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        .checklist-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            border-radius: var(--radius-block) var(--radius-block) 0 0;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        .checklist-block:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+        .checklist-block:hover::before {
+            opacity: 0.8;
+        }
+
+        /* Задержки появления */
+        .checklist-block:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+        .checklist-block:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+        .checklist-block:nth-child(3) {
+            animation-delay: 0.25s;
+        }
+        .checklist-block:nth-child(4) {
+            animation-delay: 0.35s;
+        }
+        .checklist-block:nth-child(5) {
+            animation-delay: 0.45s;
+        }
+
+        @keyframes blockAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Цветовые темы блоков */
+        .block-blue {
+            background: #FDFEFF;
+            border: 1.5px solid var(--block-blue-border);
+        }
+        .block-blue::before {
+            background: #7CB9E8;
+        }
+        .block-blue .block-header-icon {
+            background: var(--block-blue-header);
+        }
+
+        .block-pink {
+            background: #FFFDFE;
+            border: 1.5px solid var(--block-pink-border);
+        }
+        .block-pink::before {
+            background: #E8A0B9;
+        }
+        .block-pink .block-header-icon {
+            background: var(--block-pink-header);
+        }
+
+        .block-yellow {
+            background: #FFFEFA;
+            border: 1.5px solid var(--block-yellow-border);
+        }
+        .block-yellow::before {
+            background: #E8C94F;
+        }
+        .block-yellow .block-header-icon {
+            background: var(--block-yellow-header);
+        }
+
+        .block-green {
+            background: #FDFEFD;
+            border: 1.5px solid var(--block-green-border);
+        }
+        .block-green::before {
+            background: #7CBF8A;
+        }
+        .block-green .block-header-icon {
+            background: var(--block-green-header);
+        }
+
+        .block-purple {
+            background: #FEFDFF;
+            border: 1.5px solid var(--block-purple-border);
+        }
+        .block-purple::before {
+            background: #B89AD4;
+        }
+        .block-purple .block-header-icon {
+            background: var(--block-purple-header);
+        }
+
+        /* Заголовок блока */
+        .block-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1.5px dashed rgba(0, 0, 0, 0.08);
+        }
+        .block-header-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+        .checklist-block:hover .block-header-icon {
+            transform: scale(1.1) rotate(-5deg);
+        }
+        .block-header-text {
+            font-family: 'Comfortaa', 'Nunito', cursive, sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #4A4A4A;
+            line-height: 1.3;
+            letter-spacing: 0.02em;
+        }
+
+        /* Список */
+        .checklist-items {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding: 7px 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            font-size: 0.93rem;
+            color: var(--text-medium);
+            letter-spacing: 0.015em;
+        }
+        .checklist-item:hover {
+            background: rgba(0, 0, 0, 0.025);
+        }
+        .checklist-item:active {
+            background: rgba(0, 0, 0, 0.045);
+            transform: scale(0.985);
+        }
+
+        /* Квадратик для галочки */
+        .check-square {
+            width: 26px;
+            height: 26px;
+            min-width: 26px;
+            border-radius: var(--radius-check);
+            border: 2.2px solid #D0D0D0;
+            background: #FAFAFA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            flex-shrink: 0;
+        }
+        .check-square::after {
+            content: '✓';
+            position: absolute;
+            font-size: 15px;
+            font-weight: 900;
+            color: white;
+            opacity: 0;
+            transform: scale(0) rotate(-30deg);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            line-height: 1;
+        }
+        .checklist-item:hover .check-square {
+            border-color: #B8B8B8;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Состояние "выполнено" */
+        .checklist-item.checked .check-square {
+            background: var(--check-green);
+            border-color: var(--check-green);
+            box-shadow: 0 3px 10px rgba(92, 191, 107, 0.3);
+            animation: checkPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .checklist-item.checked .check-square::after {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+        .checklist-item.checked .item-text {
+            color: #8B8B8B;
+        }
+        @keyframes checkPop {
+            0% {
+                transform: scale(1);
+            }
+            35% {
+                transform: scale(1.18);
+            }
+            70% {
+                transform: scale(0.94);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Счётчик внизу */
+        .progress-summary {
+            text-align: center;
+            margin-top: 32px;
+            font-family: 'Comfortaa', 'Nunito', cursive, sans-serif;
+            font-size: 1rem;
+            color: #6B6B6B;
+            letter-spacing: 0.03em;
+            animation: fadeInUp 0.6s ease-out 0.5s both;
+        }
+        .progress-summary .progress-count {
+            font-weight: 700;
+            color: var(--check-green);
+            font-size: 1.3rem;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============ АДАПТИВ ============ */
+        @media (max-width: 768px) {
+            .blocks-grid {
+                gap: 16px;
+            }
+            .checklist-block {
+                flex: 0 1 260px;
+                min-width: 240px;
+                max-width: 340px;
+                padding: 18px 16px 16px;
+            }
+            .block-header-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 19px;
+            }
+            .block-header-text {
+                font-size: 0.9rem;
+            }
+            .checklist-item {
+                font-size: 0.87rem;
+                padding: 6px 8px;
+                gap: 9px;
+            }
+            .check-square {
+                width: 23px;
+                height: 23px;
+                min-width: 23px;
+                border-radius: 5px;
+            }
+            .check-square::after {
+                font-size: 13px;
+            }
+            .watercolor-splash {
+                filter: blur(35px);
+                opacity: 0.22;
+            }
+            .dandelion-seed {
+                transform: scale(0.7);
+            }
+            .bubble {
+                transform: scale(0.7);
+            }
+            .shell-decoration {
+                font-size: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .main-container {
+                padding: 20px 12px 35px;
+            }
+            .blocks-grid {
+                gap: 14px;
+            }
+            .checklist-block {
+                flex: 0 1 100%;
+                max-width: 100%;
+                min-width: unset;
+                padding: 16px 14px 14px;
+            }
+            .block-header-text {
+                font-size: 0.85rem;
+            }
+            .checklist-item {
+                font-size: 0.84rem;
+            }
+            .main-title {
+                font-size: 1.5rem;
+            }
+            .watercolor-splash {
+                filter: blur(25px);
+                opacity: 0.18;
+            }
+            .dandelion-seed {
+                transform: scale(0.5);
+            }
+            .bubble {
+                transform: scale(0.5);
+            }
+            .shell-decoration {
+                font-size: 16px;
+                opacity: 0.25;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ============ ФОНОВЫЕ АКВАРЕЛЬНЫЕ КЛЯКСЫ ============ -->
+    <div class="watercolor-splash splash-1"></div>
+    <div class="watercolor-splash splash-2"></div>
+    <div class="watercolor-splash splash-3"></div>
+    <div class="watercolor-splash splash-4"></div>
+    <div class="watercolor-splash splash-5"></div>
+    <div class="watercolor-splash splash-6"></div>
+
+    <!-- ============ СЕМЕНА ОДУВАНЧИКОВ ============ -->
+    <div class="dandelion-seed seed-1"><div class="fluff"></div><div class="stem"></div></div>
+    <div class="dandelion-seed seed-2"><div class="fluff"></div><div class="stem"></div></div>
+    <div class="dandelion-seed seed-3"><div class="fluff"></div><div class="stem"></div></div>
+    <div class="dandelion-seed seed-4"><div class="fluff"></div><div class="stem"></div></div>
+    <div class="dandelion-seed seed-5"><div class="fluff"></div><div class="stem"></div></div>
+    <div class="dandelion-seed seed-6"><div class="fluff"></div><div class="stem"></div></div>
+    <div class="dandelion-seed seed-7"><div class="fluff"></div><div class="stem"></div></div>
+    <div class="dandelion-seed seed-8"><div class="fluff"></div><div class="stem"></div></div>
+    <div class="dandelion-seed seed-9"><div class="fluff"></div><div class="stem"></div></div>
+    <div class="dandelion-seed seed-10"><div class="fluff"></div><div class="stem"></div></div>
+
+    <!-- ============ МЫЛЬНЫЕ ПУЗЫРИ ============ -->
+    <div class="bubble bub-1"></div>
+    <div class="bubble bub-2"></div>
+    <div class="bubble bub-3"></div>
+    <div class="bubble bub-4"></div>
+    <div class="bubble bub-5"></div>
+    <div class="bubble bub-6"></div>
+    <div class="bubble bub-7"></div>
+    <div class="bubble bub-8"></div>
+
+    <!-- ============ РАКУШКИ ============ -->
+    <div class="shell-decoration shell-1">🐚</div>
+    <div class="shell-decoration shell-2">🪸</div>
+    <div class="shell-decoration shell-3">🐚</div>
+    <div class="shell-decoration shell-4">🪸</div>
+
+    <!-- ============ ОСНОВНОЙ КОНТЕНТ ============ -->
+    <div class="main-container">
+        <h1 class="main-title">ЛЕТНИЙ РЕЧЕВОЙ ЧЕК-ЛИСТ</h1>
+        <p class="subtitle-decoration">☀️ Развиваем речь играючи — отмечай выполненные задания! ☀️</p>
+
+        <div class="blocks-grid">
+
+            <!-- Блок 1: Дыхание и воздушная струя -->
+            <div class="checklist-block block-blue">
+                <div class="block-header">
+                    <div class="block-header-icon">💨</div>
+                    <span class="block-header-text">Дыхание и воздушная струя</span>
+                </div>
+                <ul class="checklist-items">
+                    <li class="checklist-item" data-id="1-1">
+                        <span class="check-square"></span><span class="item-text">Одуванчики-пушинки</span>
+                    </li>
+                    <li class="checklist-item" data-id="1-2">
+                        <span class="check-square"></span><span class="item-text">Кораблики в луже</span>
+                    </li>
+                    <li class="checklist-item" data-id="1-3">
+                        <span class="check-square"></span><span class="item-text">Мыльные пузыри</span>
+                    </li>
+                    <li class="checklist-item" data-id="1-4">
+                        <span class="check-square"></span><span class="item-text">Горячий песок</span>
+                    </li>
+                    <li class="checklist-item" data-id="1-5">
+                        <span class="check-square"></span><span class="item-text">Забей гол</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Блок 2: Артикуляционная гимнастика -->
+            <div class="checklist-block block-pink">
+                <div class="block-header">
+                    <div class="block-header-icon">👅</div>
+                    <span class="block-header-text">Артикуляционная гимнастика</span>
+                </div>
+                <ul class="checklist-items">
+                    <li class="checklist-item" data-id="2-1">
+                        <span class="check-square"></span><span class="item-text">Вкусное мороженое</span>
+                    </li>
+                    <li class="checklist-item" data-id="2-2">
+                        <span class="check-square"></span><span class="item-text">Язычок-качели</span>
+                    </li>
+                    <li class="checklist-item" data-id="2-3">
+                        <span class="check-square"></span><span class="item-text">Спрячем ягодку</span>
+                    </li>
+                    <li class="checklist-item" data-id="2-4">
+                        <span class="check-square"></span><span class="item-text">Лошадка едет на дачу</span>
+                    </li>
+                    <li class="checklist-item" data-id="2-5">
+                        <span class="check-square"></span><span class="item-text">Поймай комара</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Блок 3: Слух, ритм, звуки лета -->
+            <div class="checklist-block block-yellow">
+                <div class="block-header">
+                    <div class="block-header-icon">👂</div>
+                    <span class="block-header-text">Слух, ритм, звуки лета</span>
+                </div>
+                <ul class="checklist-items">
+                    <li class="checklist-item" data-id="3-1">
+                        <span class="check-square"></span><span class="item-text">Угадай, что звучит</span>
+                    </li>
+                    <li class="checklist-item" data-id="3-2">
+                        <span class="check-square"></span><span class="item-text">Ритмы на камушках</span>
+                    </li>
+                    <li class="checklist-item" data-id="3-3">
+                        <span class="check-square"></span><span class="item-text">Съедобное — несъедобное</span>
+                    </li>
+                    <li class="checklist-item" data-id="3-4">
+                        <span class="check-square"></span><span class="item-text">Тихо — громко</span>
+                    </li>
+                    <li class="checklist-item" data-id="3-5">
+                        <span class="check-square"></span><span class="item-text">Кто как поёт?</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Блок 4: Слова и грамматика в движении -->
+            <div class="checklist-block block-green">
+                <div class="block-header">
+                    <div class="block-header-icon">📖</div>
+                    <span class="block-header-text">Слова и грамматика в движении</span>
+                </div>
+                <ul class="checklist-items">
+                    <li class="checklist-item" data-id="4-1">
+                        <span class="check-square"></span><span class="item-text">Я вижу что-то…</span>
+                    </li>
+                    <li class="checklist-item" data-id="4-2">
+                        <span class="check-square"></span><span class="item-text">Великаны и гномы</span>
+                    </li>
+                    <li class="checklist-item" data-id="4-3">
+                        <span class="check-square"></span><span class="item-text">Скажи наоборот</span>
+                    </li>
+                    <li class="checklist-item" data-id="4-4">
+                        <span class="check-square"></span><span class="item-text">Жадина</span>
+                    </li>
+                    <li class="checklist-item" data-id="4-5">
+                        <span class="check-square"></span><span class="item-text">Посчитай-ка</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Блок 5: Связная речь и творчество -->
+            <div class="checklist-block block-purple">
+                <div class="block-header">
+                    <div class="block-header-icon">💬</div>
+                    <span class="block-header-text">Связная речь и творчество</span>
+                </div>
+                <ul class="checklist-items">
+                    <li class="checklist-item" data-id="5-1">
+                        <span class="check-square"></span><span class="item-text">Салат из сказок</span>
+                    </li>
+                    <li class="checklist-item" data-id="5-2">
+                        <span class="check-square"></span><span class="item-text">Дорисуй и расскажи</span>
+                    </li>
+                    <li class="checklist-item" data-id="5-3">
+                        <span class="check-square"></span><span class="item-text">Репортаж с пляжа</span>
+                    </li>
+                    <li class="checklist-item" data-id="5-4">
+                        <span class="check-square"></span><span class="item-text">Закопай и объясни</span>
+                    </li>
+                    <li class="checklist-item" data-id="5-5">
+                        <span class="check-square"></span><span class="item-text">Небылицы</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Счётчик прогресса -->
+        <div class="progress-summary">
+            ✅ Выполнено: <span class="progress-count" id="progressCount">0</span> из 25 заданий
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // Загружаем сохранённые состояния
+            const savedState = JSON.parse(localStorage.getItem('summerSpeechChecklist') || '{}');
+
+            // Все элементы списка
+            const allItems = document.querySelectorAll('.checklist-item');
+            const progressCountEl = document.getElementById('progressCount');
+            const totalItems = allItems.length;
+
+            // Восстановление состояний
+            allItems.forEach(item => {
+                const id = item.getAttribute('data-id');
+                if (savedState[id] === true) {
+                    item.classList.add('checked');
+                }
+            });
+
+            // Обновление счётчика
+            function updateProgress() {
+                const checkedCount = document.querySelectorAll('.checklist-item.checked').length;
+                progressCountEl.textContent = checkedCount;
+                // Анимация изменения числа
+                progressCountEl.style.transform = 'scale(1.25)';
+                setTimeout(() => {
+                    progressCountEl.style.transform = 'scale(1)';
+                }, 200);
+            }
+            updateProgress();
+
+            // Добавляем плавный переход для счётчика
+            progressCountEl.style.transition = 'transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            progressCountEl.style.display = 'inline-block';
+
+            // Обработчик клика
+            allItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    // Не реагируем, если клик был по уже выделенному тексту
+                    if (window.getSelection().toString().length > 0) return;
+
+                    const id = this.getAttribute('data-id');
+                    const isChecked = this.classList.toggle('checked');
+
+                    // Сохраняем в localStorage
+                    if (isChecked) {
+                        savedState[id] = true;
+                    } else {
+                        delete savedState[id];
+                    }
+                    localStorage.setItem('summerSpeechChecklist', JSON.stringify(savedState));
+
+                    // Обновляем счётчик
+                    updateProgress();
+
+                    // Лёгкая вибрация на мобильных (если поддерживается)
+                    if (navigator.vibrate && isChecked) {
+                        navigator.vibrate(15);
+                    }
+                });
+
+                // Поддержка клавиатуры
+                item.setAttribute('tabindex', '0');
+                item.setAttribute('role', 'checkbox');
+                item.setAttribute('aria-checked', item.classList.contains('checked') ? 'true' : 'false');
+                item.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+                // Обновляем aria при изменении
+                const observer = new MutationObserver(() => {
+                    item.setAttribute('aria-checked', item.classList.contains('checked') ?
+                        'true' : 'false');
+                });
+                observer.observe(item, { attributes: true, attributeFilter: ['class'] });
+            });
+
+            console.log('🌞 Летний речевой чек-лист готов!');
+            console.log('📋 Всего заданий: ' + totalItems);
+            console.log('💾 Прогресс сохраняется автоматически в браузере');
+        })();
+    </script>
+</body>
+</html>
